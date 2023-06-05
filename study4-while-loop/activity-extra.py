@@ -2,9 +2,9 @@
 # The program must prompt for values until the user enters -1. (Using while and conditionals)
 
 n = int(input("Enter a number: "))
-# Variable to store the given numbers if they're the higher than the highest
+# Variable to store the given numbers if they're higher than the highest
 highest = n
-# Variable to store the given numbers if they're the lower than the lowest
+# Variable to store the given numbers if they're lower than the lowest
 lowest = n
 while n != -1:
    n = int(input("Enter a number: "))
