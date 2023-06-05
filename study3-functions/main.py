@@ -83,24 +83,26 @@ if __name__ == '__main__':
 
 # OUTPUT: Welcome to a Python function definition.
 
-# (2) Create a function to display the received value. 
+# (2) You could also even make a function to store the code: __name__ == '__main__'
+# To call it later.
+def main():
+    if __name__ == '__main__':
+        return True
+    else:
+        return False
+
+# (3) Create a function to display the received value. 
 # The main program calls the function three times, 
 # passes an integer value, a float value, and then a negative one.
 def show_value(param):
     print("Received parameter:", param)
 
 # Calling the function inside main
-if __name__ == '__main__':           
+if main():           
     show_value(5)                   	
     show_value(23.8)                	    
     num = -8
     show_value(num) 
-
-# (3) You could also even make a function to store the code: __name__ == '__main__'
-# To call it later.
-def main():
-    if __name__ == '__main__':
-        return True
 
 
 ### IMPORTING A FUNCTION 
