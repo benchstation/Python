@@ -6,4 +6,13 @@ if num % 2 == 0 :
    print("The number is even.\n")
 else :
    print("The number is odd.\n")
-   
+
+"""
+a = 3
+if a % 2 == 1:
+    print('The number is ODD \n')
+elif a % 2 == 0:
+    print('The number is EVEN \n')
+else:
+    print('Invalid number')
+"""

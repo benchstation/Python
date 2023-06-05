@@ -1,8 +1,44 @@
 ### FUNCTIONS
 
+# Using functions helps to better organize the code and reuse it
+# A function in Python is defined with the keyword def ("definition")
+def add_numbers(a, b):
+    # Below here is the SCRIPT
+    sum = a + b
+    return sum
 
+result = add_numbers(3, 5)
+print(result)               # OUTPUT: 8
+print(add_numbers(3, 2))    # OUTPUT: 5
+
+def add1(a):
+  return a + 1
+
+def multiply2(a):
+  return a * 2
+
+v = 5
+print("v =", v)
+v = add1(v)
+print("v + 1 =", v)
+
+v = multiply2(v)
+print("v * 2 =", v)
 
 '''
+- Sintax:
+def function_name([param_1, param_2, ... , param_n]):       # Default is to use all lowercase letters with underscores (_) to separate (snake_case)
+    script			   	                                    # Mandatory indentation
+    . . . 
+    [return val1[, val2, ... , valn]]	                    # The return is optional
+
+# Calls the function to run inside the main program:
+if __name__ == '__main__':                      	
+    . . .					        	            
+    function_name([param_1, param_2, ... , param_n]):
+    . . .
+The above convention ( __ ) is used frequently in Python and it's called "dunder" (from the English expression "double-underscore")
+
 In Python, the if __name__ == '__main__': line is used to determine if the current module 
 is being run as the main program or if it is being imported as a module by another program.
 
@@ -11,19 +47,122 @@ However, when a file is imported as a module into another program, the value of 
 
 By using the if __name__ == '__main__': condition, you can separate the code that should only run when the module is executed as the main program. 
 This allows you to have code that will be executed when the file is run directly, but not when it is imported as a module.
+
+OBS: A function can be called more than once in main.
 '''
-
-
-#In the following code, if the module is being run as the main program (i.e., directly executed), 
-# it will prompt the user to enter two numbers and then call the calculator function from the imported 
-# function module to perform the calculations and display the results. 
-# However, if the module is imported as a module by another program, the code 
-# inside the if __name__ == '__main__': block will not be executed.
-
-from function import calculator
+from all_functions import calculator
 
 if __name__ == '__main__' :
     x = int(input('Enter a number: '))
     y = int(input('Enter another number: '))
 
     print(calculator(x, y))
+
+#In the above code, if the module is being run as the main program (i.e., directly executed), 
+# it will prompt the user to enter two numbers and then call the calculator function from the imported 
+# function module to perform the calculations and display the results. 
+# However, if the module is imported as a module by another program, the code 
+# inside the if __name__ == '__main__': block will not be executed.
+
+print("") # Line break
+
+### EXAMPLES OF FUNCTIONS
+# (1) Create a function to display the fixed message "Welcome to the Python def".
+# Create the main program (main.py) to call this function.
+
+def show_message():
+    print("Welcome to a Python function definition.")
+
+# Calling the function inside main
+if __name__ == '__main__':              
+    show_message()
+    show_message()
+    show_message()
+    show_message()
+    show_message()                     
+
+# OUTPUT: Welcome to a Python function definition.
+
+# (2) Create a function to display the received value. 
+# The main program calls the function three times, 
+# passes an integer value, a float value, and then a negative one.
+def show_value(param):
+    print("Received parameter:", param)
+
+# Calling the function inside main
+if __name__ == '__main__':           
+    show_value(5)                   	
+    show_value(23.8)                	    
+    num = -8
+    show_value(num) 
+
+# (3) You could also even make a function to store the code: __name__ == '__main__'
+# To call it later.
+def main():
+    if __name__ == '__main__':
+        return True
+
+
+### IMPORTING A FUNCTION 
+# import function1 --- only works if the module is from the standard library
+# or
+from all_functions import function1
+print("First example:", function1(5, 2))
+
+# The import functionality is used mostly when importing external functions or libraries
+# These functions are part of modules which come as part of the STANDARD LIBRARY
+# Examples of commonly-used modules are: 
+# math, time, statistics, random, json, os, datetime, sys
+# But also any file you make yourself as part of your program with the .py extension can be a custom module
+# And you can import functions from them as well
+
+### EX(1): USING MATH MODULE
+import math
+num = int(input('Enter a number: '))
+root = math.sqrt(num)
+print('The square root of {} is equal {}'.format (num, math.ceil(root)))
+
+from math import sqrt, floor
+num = int(input('Enter a number: '))
+root = math.sqrt(num)
+print('The square root of {} is equal {:.2f}'.format(num, floor(root)))
+
+### EX(2): USING RANDOM MODULE
+import random
+x = random.randint (1, 100)
+print("A completely random number generated by the random module:", x)
+
+### EX(3): USING TIME MODULE
+import time
+print("Something will print after 5 seconds...")
+time.sleep(5) # Will produce a 5 seconds delay
+print("... This was printed after 5 seconds.")
+
+
+
+### MORE
+# An example of a function is the built-in Python function print()
+# The idea behind creating a function is to reuse it at various times in the program.
+# A function is nothing more than a SUBROUTINE used in a program.
+# You can't declare an empty function in Python. 
+# You always need to write something in the scope of the function, otherwise it will throw an error.
+# However, you can use the keyword "pass" to indicate "do nothing"
+def empty_function():     		
+    pass		 
+
+
+# About __pycache__ folder
+'''
+The __pycache__ folder is a directory that is automatically created by Python when it compiles and stores bytecode files (.pyc) for modules imported by your code. 
+The bytecode files contain precompiled Python bytecode, which allows for faster execution of the code in subsequent runs.
+
+When you run a Python script or import a module, Python checks if there is a corresponding bytecode file in the __pycache__ folder. 
+If the bytecode file is found and its timestamp matches the source file, Python loads and executes the bytecode directly, bypassing the need to recompile the source code.
+
+The __pycache__ folder is created in the same directory as the source file or module. 
+It has a separate subfolder for each Python version, ensuring that bytecode files are specific to the Python version used. 
+For example, if you are using Python 3, the bytecode files will be stored in a __pycache__ folder named something like __pycache__/python3.9/.
+
+The __pycache__ folder is automatically managed by Python, and you generally don't need to interact with it directly. 
+It helps improve the performance of your Python programs by caching the compiled bytecode for faster execution.
+'''
