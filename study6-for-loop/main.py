@@ -153,3 +153,14 @@ for i in range(5):
    print(i)
 
 
+### THROWAWAY VARIABLES
+# Conventionally represented by the underscore (_). 
+for i in range(5):
+    print("Hello, World!")
+
+# Would be the same as:
+for _ in range(5):
+    print("Hello, World!")
+
+# Instead of using a variable name that we won't use for the loop index, we use "_" as a placeholder. 
+# It serves as a visual indication that the loop variable is intentionally ignored.
