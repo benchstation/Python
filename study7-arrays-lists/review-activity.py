@@ -1,5 +1,5 @@
 '''
-Create a list that has these values ( 5, 1, 3, 4, 6, 7, 0)
+Create a list that has these values ( 5, 1, 3, 4, 6, 7, 0 )
 A ) Make this list a descending list;
 B ) Add the value 2 and 4 to the list;
 C ) Show the size of the list;

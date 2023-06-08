@@ -109,9 +109,9 @@ for count in range(n1, n3 + 1, n2):
 '''
 break : 
 
-Uma instrução break é usada para interromper o loop mais próximo em que está inserido. 
+A break statement is used to break out of the closest loop it is in.
 
-Quando o Python encontra a palavra-chave break, ele sai do loop e continua a execução do programa a partir do ponto imediatamente após o loop.
+When Python encounters the break keyword, it exits the loop and continues program execution from the point immediately after the loop.
 
 '''
 
@@ -125,11 +125,13 @@ for i in range(5):
 '''
 pass : 
 
-Uma instrução break é usada para interromper o loop mais próximo em que está inserido. 
+The pass keyword is used when you need a syntactically valid statement or block of code, but don't want to do anything. 
+It's basically a placeholder that does nothing. 
 
-Quando o Python encontra a palavra-chave break, ele sai do loop e continua a execução do programa a partir do ponto imediatamente após o loop.
+This command is useful in situations where you are writing code where you need to fill in logic later.
 
 '''
+
 # pass example
 for i in range(5):
    if i == 3:
@@ -141,9 +143,10 @@ for i in range(5):
 '''
 continue : 
 
-A instrução continue é usada para pular o restante do código dentro de um loop e avançar para a próxima iteração. 
+The continue statement is used to skip the rest of the code inside a loop and move on to the next iteration.
 
-Quando o Python encontra uma palavra-chave continue, ele ignora o restante do loop e continua com a próxima iteração. 
+When Python encounters a continue keyword, it skips the rest of the loop and continues with the next iteration. 
+
 '''
 
 # continue example
