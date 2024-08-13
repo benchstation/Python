@@ -93,13 +93,18 @@ list_two = list()		# Using a Constructor: list()
 print(list_one)
 print(list_two)
 
-# Usando índices negativos
-example_list = [10, 20, 30, 40] 
-#             0    1    2    3   ---> Index / list position, positive counting
-#             -4   -3  -2   -1   ---> Index / list position, negative counting
-print(example_list[1])
-print(example_list[-3]) 
+# Using negative indexing
+areas = ["hallway", 11.25, "kitchen", 18.0, "living room", 20.0, "bedroom", 10.75, "bathroom", 9.50]
+#             0      1         2       3         4          5       6        7         8        9  ---> Index / list position, positive counting
+#           -10     -9        -8      -7        -6         -5      -4       -3        -2       -1  ---> Index / list position, negative counting
 
+# The output will be the same
+print(areas[8])
+print(areas[-2])
+
+# List subsecting (selects a part of the list to make a new list)
+areas_section = areas[5:7] # Returns a new list
+print(areas_section)
 
 ### Querying/Consulting a list
 '''
@@ -112,18 +117,18 @@ to limit the search to a specific substring of the list.
 the start argument.
 - Raises a ValueError if the item 'x' does not exist.
 '''
-print(example_list.index(40)) 
-print(example_list.index(20, 0, 2)) # Searches between indexes 0 and 2
+print(areas.index(18.0)) 
+print(areas.index("kitchen", 0, 3)) # Searches between indexes 0 and 2
 
-# x in array
+# Keyword IN (x in [array])
 # Returns true or false
 #Ex.1
-if 30 in example_list:
+if 20 in areas:
    print('Value is present on the list')
 else:
    print('Value is NOT present on the list')
 #Ex.2
-if 80 in example_list:
+if 80 in areas:
    print('Value is present on the list')
 else:
    print('Value is NOT present on the list')
