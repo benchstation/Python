@@ -1,0 +1,65 @@
+# Python Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Diretórios de ambientes virtuais
+venv/
+ENV/
+env/
+.venv/
+.env/
+
+# Configurações de IDEs
+.vscode/
+
+# Arquivos e diretórios criados pelo Jupyter
+.ipynb_checkpoints/
+profile_default/
+.ipython/
+.jupyter/
+nbproject/
+*.nbconvert/
+
+# Arquivos de log
+*.log
+
+# Arquivos de banco de dados SQLite
+*.sqlite3
+*.db
+
+# Arquivos de cache
+*.egg-info/
+*.eggs/
+.eggs/
+*.cache
+*.pyo
+
+# Arquivos de pacotes Python
+*.egg
+*.whl
+dist/
+build/
+*.egg-info/
+
+# Arquivos de configuração de pacotes Python
+*.pylintrc
+*.mypy_cache/
+*.pytest_cache/
+.coverage
+.pytest_cache/
+.cache/
+
+# Arquivos de saída
+*.out
+*.pdf
+
+# Arquivos de grandes dimensões
+*.h5
+*.hdf5
+
+# Chaves e credenciais
+*.pem
+*.key
+*.crt
+.env
