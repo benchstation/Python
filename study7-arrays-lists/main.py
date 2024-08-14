@@ -64,8 +64,8 @@ print(names_list)
 names_list.append("Beltrano")
 print(names_list)
 
-# Removing an index (position) from the list
-del names_list[(len(names_list)) - 1] # In this case, I deleted the last position
+# Removing an index (position) from the list (del keyword)
+del names_list[(len(names_list)) - 1] # Deleting the last position
 print(names_list)
 
 # Creating a list inside another list and accessing it
@@ -102,9 +102,42 @@ areas = ["hallway", 11.25, "kitchen", 18.0, "living room", 20.0, "bedroom", 10.7
 print(areas[8])
 print(areas[-2])
 
-# List subsecting (selects a part of the list to make a new list)
-areas_section = areas[5:7] # Returns a new list
-print(areas_section)
+# List Subsetting
+# Formatting: example_list[start:end] 
+# The start index will be included, while the end index will not
+# It selects a part of the list to make a new list
+section1 = areas[5:7] # Returns a new list
+print(section1)
+# It's also possible not to specify these indexes. 
+# If you don't specify the start index, Python figures out that you want to start your slice at the beginning of your list
+section2 = areas[:4]
+print(section2)
+section3 = areas[0:]
+print(section3) # prints the entire list
+
+# Use slicing to create downstairs
+downstairs = areas[:6]
+
+# Use slicing to create upstairs
+upstairs = areas[6:]
+
+# Print out downstairs and upstairs
+print(downstairs)
+print(upstairs)
+
+# Subsetting lists of lists
+# To subset lists inside of other lists, you can use the square brackets notation
+house = [["hallway", 11.25],
+         ["kitchen", 18.0],
+         ["living room", 20.0],
+         ["bedroom", 10.75],
+         ["bathroom", 9.50]]
+print(house[2][0])
+
+# Changing various elements in a list at once with subsetting
+areas = ["hallway", 11.25, "kitchen", 18.0, "living room", 20.0, "bedroom", 10.75, "bathroom", 9.50]
+areas[6:8] = ["basement", 8.25]
+print(areas)
 
 ### Querying/Consulting a list
 '''
@@ -265,10 +298,9 @@ lista = [2, 3, 4, 5]
 media = mean(lista)
 print(media)
 
-
 ### EXTRA:
 
-# (1) Checking for the char[] array (array inside another array)
+# 1. Checking for the char[] array (array inside another array)
 '''
 In the languages_list[3][1], languages_list[3] returns the string "Pascal". 
 Then, languages_list[3][1] accesses the character at index 1 of the string "Pascal", which is "a".
@@ -289,31 +321,39 @@ print(languages_list[3]) # OUTPUT: Pascal
 
 print(languages_list[3][1])  # OUTPUT: a
 
-
-# (2) array.copy()
+# 2. Copying Lists
+# Formatting: array.copy()
 # Returns a copy of the list
 list1 = [1, 2, 3, 4, 5]
 
 copy = list1.copy()
 print(copy) # OUTPUT: [1, 2, 3, 4, 5]
 
-# (3) tuple(array)
+# 3. Understanding linking
+# When you create a variable that points to a list, it doesn't create a copy of the previous list
+# Instead, it becomes another reference to the list's memory address
+list3 = [1, 2, 3, 4, 5] # Created the list in memory, the list3 variable points to it
+list4 = list3 # The list4 is now pointing to the same list as list3, thus they're "linked"
+# To avoid the linking, copy the initial list
+list5 = list3.copy()
+# Or use subsetting
+list6 = list3[:]
+list6[1] = -2
+print("List 4: ", list4)
+list3.append(3)
+print("List 4: ", list4)
+print("List 5: ", list5)
+print("List 6: ", list6)
+
+# 4. Tuple Class
+# Formatting: tuple(array)
 # Returns the elements of the list in tuple format
 list2 = [1, 2, 3, 4, 5]
 t1 = tuple(list2)
 print(t1) # OUTPUT: (1, 2, 3, 4, 5)
 
-# (4) Link
-list3 = [1, 2, 3, 4, 5]
-
-list4 = list3 # Linked
-list5 = list3.copy()
-print("List 4: ",list4)
-list3.append(3)
-print("List 4: ",list4)
-print("List 5: ",list5)
-
-# (5) map(function, array) ------------> Super useful!! <3 
+# 5. Mapping Lists ------------> Super useful!! <3 
+# Formatting: map(function, array) 
 # It is a Python built-in function, that is, a function implemented directly in
 # the Python interpreter, which can be used without importing a specific module.
 # Applies a function to each element of a list, returning a new list
@@ -343,13 +383,13 @@ prices_with_tax2 = list(map(add_tax, prices)) # map(add_tax, prices)
 print (prices_with_tax2)
 # <map object at 0x1011df010>
 
-# (6) Performing Operations with Arrays
+# 6. Performing Operations with Arrays
 # Concatenating Lists (+) 
 # Concatenate all elements of two lists:
-# Ex. 1:
+# Ex. 1: Adding [a] + [b] = [a, b] 
 a = [0,1,2]
 b = [3,4,5] 
-c = a + b # Adding a + b like: [0, 1, 2] + [3, 4, 5] = [0, 1, 2, 3, 4, 5]
+c = a + b 
 print(c) # OUTPUT: [0, 1, 2, 3, 4, 5] 
 # Ex. 2:
 a = [0, 1, 2]
@@ -363,7 +403,8 @@ R = L * 4
 print(R) # OUTPUT: [1, 2, 1, 2, 1, 2, 1, 2] 
 print(L) # OUTPUT: [1, 2] 
  
-# (7) lista.extend(iterable)
+# 7. Extending Lists 
+# Formatting: lista.extend(iterable)
 # Extends the list by adding all elements of the iterable.
 lista = [1,2,3,4,5]
 
@@ -374,7 +415,6 @@ lista2 = [9, 8, 7, 6]
 lista.extend(lista2)
 print(lista) # OUTPUT: [1, 2, 3, 4, 5, 8, 7, 6, 5]
 
- 	
 ### ADDING USER INPUT TO LISTS
 for c in range(5):
   n_lista = int(input('Enter some numbers: '))
@@ -422,7 +462,7 @@ a_1 = list(a)
 # "abcdef"
 '''
 
-# Finding all the vogals in a phrase
+# Finding all the vowels in a phrase
 f = input("Say something:\n")
 v =['a', 'o', 'u', 'i', 'e']
 found = []
@@ -431,6 +471,5 @@ for letter in f:
        if letter not in found:
            found.append(letter)
 
-for vogal in found:
-   print(vogal, end=" ")
-
+for vowel in found:
+   print(vowel, end=" ")
