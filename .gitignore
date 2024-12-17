@@ -52,7 +52,6 @@ build/
 
 # Arquivos de saída
 *.out
-*.pdf
 
 # Arquivos de grandes dimensões
 *.h5
